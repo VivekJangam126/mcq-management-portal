@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add this to your global.css or Tailwind config if needed */
+.nav-link {
+  @apply hover:text-yellow-300 transition duration-200 font-medium;
+}

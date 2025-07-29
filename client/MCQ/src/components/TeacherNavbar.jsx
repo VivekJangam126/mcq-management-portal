@@ -1,4 +1,3 @@
-// src/components/TeacherNavbar.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -31,16 +30,18 @@ const TeacherNavbar = () => {
 export default TeacherNavbar;
 
 const Nav = styled.nav`
-  background-color: #4b0082;
-  color: white;
+  background-color: #e4e4e4;
+  color: #202020;
   padding: 15px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 
   .logo {
     font-size: 20px;
     font-weight: bold;
+    color: #202020;
   }
 
   .nav-links {
@@ -52,24 +53,28 @@ const Nav = styled.nav`
     li {
       a {
         text-decoration: none;
-        color: white;
+        color: #202020;
         font-weight: 500;
+        padding: 6px 12px;
+        border-radius: 4px;
+        transition: background 0.3s;
 
         &:hover {
-          color: #ffd700;
+          background-color: #d0d0d0;
         }
       }
 
       .logout {
-        background: transparent;
-        border: 1px solid white;
+        background: #202020;
+        border: none;
         color: white;
         padding: 6px 12px;
+        border-radius: 4px;
         cursor: pointer;
+        transition: background 0.3s;
 
         &:hover {
-          background: white;
-          color: #4b0082;
+          background: #333;
         }
       }
     }

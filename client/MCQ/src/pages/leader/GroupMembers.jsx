@@ -13,27 +13,36 @@ const GroupMembers = () => {
     <>
       <LeaderNavbar />
       <Wrapper>
-        <h1>👥 Group Members</h1>
-        <table>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Full Name</th>
-              <th>Email</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {members.map((member, index) => (
-              <tr key={member.id}>
-                <td>{index + 1}</td>
-                <td>{member.name}</td>
-                <td>{member.email}</td>
-                <td className={member.status.toLowerCase()}>{member.status}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div className="form">
+          <p>
+            👥 Group Members <br />
+            <span>List of students in your group</span>
+          </p>
+          <div className="tableContainer">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Full Name</th>
+                  <th>Email</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {members.map((member, index) => (
+                  <tr key={member.id}>
+                    <td>{index + 1}</td>
+                    <td>{member.name}</td>
+                    <td>{member.email}</td>
+                    <td className={member.status.toLowerCase()}>
+                      {member.status}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </Wrapper>
     </>
   );
@@ -42,49 +51,67 @@ const GroupMembers = () => {
 export default GroupMembers;
 
 // Styled Components
-const Wrapper = styled.div`
-  padding: 40px;
-  background-color: #f3f4f6;
-  min-height: 90vh;
-  font-family: "Poppins", sans-serif;
+const Wrapper = styled.section`
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: #f7f7f7;
 
-  h1 {
-    font-size: 24px;
-    color: #1f2937;
-    margin-bottom: 20px;
+  .form {
+    background: #e4e4e4;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  span {
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  .tableContainer {
+    overflow-x: auto;
   }
 
   table {
     width: 100%;
     border-collapse: collapse;
     background: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    border-radius: 10px;
+    border-radius: 8px;
     overflow: hidden;
+    margin-top: 1rem;
   }
 
   th,
   td {
-    padding: 16px;
+    padding: 0.8rem;
     text-align: left;
-    font-size: 16px;
+    border-bottom: 1px solid #ddd;
   }
 
   thead {
-    background-color: #e5e7eb;
+    background-color: #dcdcdc;
   }
 
   tbody tr:nth-child(even) {
-    background-color: #f9fafb;
+    background-color: #f5f5f5;
   }
 
   .active {
     color: green;
-    font-weight: 600;
+    font-weight: bold;
   }
 
   .pending {
     color: orange;
-    font-weight: 600;
+    font-weight: bold;
   }
 `;

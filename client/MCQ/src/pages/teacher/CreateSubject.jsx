@@ -17,7 +17,6 @@ const CreateSubject = () => {
     };
 
     console.log("Subject Created:", newSubject);
-    // TODO: Send this to backend or save in localStorage
     alert("Subject created successfully!");
     setDivision("");
     setSubject("");
@@ -27,23 +26,23 @@ const CreateSubject = () => {
     <>
       <TeacherNavbar />
       <Wrapper>
-        <h2>Create Subject</h2>
-        <form onSubmit={handleSubmit}>
-          <label>
-            Select Division:
+        <div className="form">
+          <p>
+            Create a New Subject <br />
+            <span>Select division and enter subject name</span>
+          </p>
+          <form onSubmit={handleSubmit}>
             <select
               value={division}
               onChange={(e) => setDivision(e.target.value)}
               required
             >
               <option value="">-- Select Division --</option>
-              <option value="A">Division A</option>
-              <option value="B">Division B</option>
+              <option value="N3">Division N3</option>
+              <option value="G3">Division G3</option>
+              <option value="H3">Division H3</option>
             </select>
-          </label>
 
-          <label>
-            Subject Name:
             <input
               type="text"
               value={subject}
@@ -51,10 +50,12 @@ const CreateSubject = () => {
               placeholder="e.g., Data Structures"
               required
             />
-          </label>
 
-          <button type="submit">Create Subject</button>
-        </form>
+            <button type="submit" className="continueBtn">
+              Create Subject
+            </button>
+          </form>
+        </div>
       </Wrapper>
     </>
   );
@@ -62,51 +63,54 @@ const CreateSubject = () => {
 
 export default CreateSubject;
 
-const Wrapper = styled.div`
-  max-width: 600px;
-  margin: 40px auto;
-  background: #f9f9f9;
-  padding: 30px;
-  border-radius: 10px;
+const Wrapper = styled.section`
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: #f7f7f7;
 
-  h2 {
-    text-align: center;
-    margin-bottom: 25px;
+  .form {
+    background: #e4e4e4;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   }
 
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  label {
-    display: flex;
-    flex-direction: column;
+  p {
+    font-size: 1.2rem;
     font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  span {
+    font-size: 0.9rem;
+    color: #555;
   }
 
   input,
   select {
-    padding: 10px;
-    font-size: 16px;
-    margin-top: 5px;
-    border-radius: 5px;
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 0.6rem;
+    border-radius: 4px;
     border: 1px solid #ccc;
+    outline: none;
   }
 
-  button {
-    margin-top: 20px;
-    padding: 12px;
-    font-size: 16px;
-    background: #28a745;
+  .continueBtn {
+    background-color: #202020;
     color: white;
+    width: 100%;
+    padding: 0.6rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
+    font-weight: bold;
   }
 
-  button:hover {
-    background: #218838;
+  .continueBtn:hover {
+    background-color: #000;
   }
 `;

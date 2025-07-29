@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
-// Styled Components for the Login Container and Buttons
-
 const Container = styled.div`
   max-width: 350px;
   margin: 60px auto;
@@ -86,6 +84,14 @@ const SubmitButton = styled(Button)`
   font-size: 15px;
   padding: 10px;
 `;
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 70px); /* Adjust if your navbar is taller */
+  padding-top: 70px; /* Push content below navbar */
+  background-color: #f5f5f5;
+`;
 
 const IconGoogle = () => (
   <svg className="icon" viewBox="0 0 24 24" width="20" height="20" fill="none">
@@ -139,38 +145,40 @@ const Login = () => {
   };
 
   return (
-    <Container>
-      <Title>
-        Welcome, <Subtitle>sign in to continue</Subtitle>
-      </Title>
+    <Wrapper>
+      <Container>
+        <Title>
+          Welcome, <Subtitle>sign in to continue</Subtitle>
+        </Title>
 
-      <Button>
-        <IconGoogle />
-        Continue with Google
-      </Button>
+        <Button>
+          <IconGoogle />
+          Continue with Google
+        </Button>
 
-      <Button>
-        <IconGithub />
-        Continue with Github
-      </Button>
+        <Button>
+          <IconGithub />
+          Continue with Github
+        </Button>
 
-      <Separator>
-        <div />
-        <span>OR</span>
-        <div />
-      </Separator>
+        <Separator>
+          <div />
+          <span>OR</span>
+          <div />
+        </Separator>
 
-      <form onSubmit={handleSubmit}>
-        <Input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <SubmitButton type="submit">Continue &gt;&gt;</SubmitButton>
-      </form>
-    </Container>
+        <form onSubmit={handleSubmit}>
+          <Input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <SubmitButton type="submit">Continue &gt;&gt;</SubmitButton>
+        </form>
+      </Container>
+    </Wrapper>
   );
 };
 
